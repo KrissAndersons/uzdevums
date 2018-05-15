@@ -1,0 +1,50 @@
+#headspace{
+    height: 10vw;
+}
+
+#content {
+    text-align: center;
+    margin: auto;
+    position: relative;
+}
+#question{
+    margin-bottom: 20px
+}
+#answers {
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+}
+
+#progresbar{
+    margin: 20px 25% 0 25%;
+    width: 50%;
+    background-color: #e0e0eb;
+    border-radius: 5px;
+    height: 20px;
+}
+
+#progres{
+    background-color: #339933;
+    border-radius: 5px;
+    height: 20px;
+    width: 0%;
+}
+.error_red{
+    color:red;
+}
+
+.button{
+    position: relative;
+    display: inline-block;
+    margin: 10px 10% 10px 10%;
+    width: 20%;
+    min-width: 100px;
+    padding: 10px 0 10px 0;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #66d9ff;
+}

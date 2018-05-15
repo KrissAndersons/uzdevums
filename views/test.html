@@ -1,0 +1,49 @@
+<div id="question"><?php echo $this->question; ?></div>
+<div id="answers">
+    <?php foreach ($this->answers AS $answer_id => $answer) : ?>
+        <div class="button"  onclick="send_answer(<?php echo $answer_id; ?>);"><?php echo $answer; ?></div>
+    <?php endforeach; ?>
+</div>
+<div id="progresbar"><div id="progres"></div></div>
+<script>
+    $(function() {
+        set_progres("<?php echo $this->progres; ?>");
+    });
+    
+    function set_progres(width){
+        $( "#progres" ).css("width", width);
+    }
+    
+    function send_answer(answer_id){
+        
+        $.post("<?php echo $this->config['url'] . "/test"; ?>", {answer: true, answer_id: answer_id} , function(result)
+        {
+            data = JSON.parse(result);
+            
+            if (data.statuss == 'reload')
+            {
+                window.location.href = data.redirect;
+            }
+            else if (data.statuss == 'next')
+            {
+                $( "#question" ).html(data.question);
+                $( "#answers" ).empty();
+                html_string = '';
+                $.each(data.answers, function(i, item) {
+                    html_string = html_string + '<div class="button" onclick="send_answer(' + i + ');">' + item + '</div>';
+                });
+                $( "#answers" ).html(html_string);
+                set_progres(data.progres);
+            }
+            else if (data.statuss == 'error')
+            {
+                alert(data.mesage);
+            }
+            else
+            {
+                alert('Serveris neatbild pareizi.');
+            }
+        });
+        
+    }
+</script>

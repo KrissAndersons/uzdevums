@@ -1,0 +1,18 @@
+
+<form method="post">
+    <h2>Testa uzdevums</h2>
+    <p>Ievadiet savu vārdu:</p>
+    <?php echo $this->name_error; ?>
+    <input name="user_name" value="<?php echo $this->name_value; ?>" type="text" >
+    <p>Izvēlieties testu:</p>
+    <?php echo $this->test_error; ?>
+    <select name="test_id">
+    <option value="0">Izvēlieties testu</option>
+    <?php foreach($this->test_list AS $id => $row) : ?>
+        <option value="<?php echo $id; ?>" <?php echo ( $id == $this->test_value ? 'selected' : '' ); ?>><?php echo $row['title']; ?></option>
+    <?php endforeach; ?>
+    </select>
+    <br><br>
+    <input type="submit" value="Sākt pildīt testu">
+</form> 
+

@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Webpage</title>
+        <link type="text/css" href="<?php echo $this->config['url']; ?>/resources/css/main.css" rel="stylesheet" media="all">
+        <script type="text/javascript" src="<?php echo $this->config['url']; ?>/resources/js/jquery-3.2.1.min.js"></script> 
+    </head>
+    <body>
+        <div id="headspace"></div>
+        <div id="content">
+            <?php echo $this->get_view($this->view); ?>
+        </div>
+    </body>
+</html>

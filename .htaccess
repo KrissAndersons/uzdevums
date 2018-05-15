@@ -1,0 +1,11 @@
+RewriteEngine on 
+
+RewriteRule ^.*[^/]\.(js|css)$ - [L] 
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ index.php?first=$1&second=$2 [QSA,L] 
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?first=$1 [QSA,L]
+RewriteRule ^(.+)$ index.php [L]
+
+#nodefinējam kādus failus atļauts servēt 
+#ierakstam adresē aiz "/" norādītos stringus $_GET masīvā
+#ja norādīts viens tad tikai vienu
+#ja adresē norādīti neatļauti simboli atveram index failu, nerakstot stringus masīvā
