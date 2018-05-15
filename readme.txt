@@ -28,3 +28,6 @@ version: 7.2.4-1+ubuntu16.04.1+deb.sury.org+1
 
 Papildus jāsagatavo fails uzdevuma root direktorijā
 config/config.php
+
+Datubāzes dumps atrodas root direktorijā
+db_dump/test_db.sql
